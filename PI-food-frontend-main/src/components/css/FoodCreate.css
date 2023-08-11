@@ -16,8 +16,7 @@
 }
 
 .limitedWidth {
-  max-width: 50px; /* Ajusta el valor según tus necesidades */
-  /* Otros estilos para limitar el ancho si lo deseas */
+  max-width: 50px; 
 }
 
 .food-create {

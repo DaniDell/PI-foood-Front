@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 
-.carta {
+.cardRecipe {
   display: inline-block;
   width: 250px;
   margin: 30px;
@@ -8,15 +8,14 @@
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); 
   border-radius: 40px;
   cursor: pointer;
-  
 }
 
-.carta:hover {
+.cardRecipe:hover {
   background-color: #ffffff;
   opacity: 0.9;
 }
 
-.carta h2 {
+.cardRecipe h2 {
   font-family: 'Fira Sans', sans-serif;
     font-size: 14pt;
     text-align: center;
@@ -31,7 +30,7 @@
 
 
 
-.carta img {
+.cardRecipe img {
   overflow: hidden;
   width: 250px;
   position: relative;
@@ -42,7 +41,7 @@
    
 }
 
-.carta p {
+.cardRecipe p {
   position: relative;
   top: -5%;
   font-size: 14pt;
@@ -50,7 +49,7 @@
   display: inline;
   color: #ddd7cf;
 }
-.carta ul {
+.cardRecipe ul {
   position: relative;
   top: -10%;
   padding: 0;
@@ -59,7 +58,7 @@
   font-size: 10px;
   color: black;
 }
-.carta h4 {
+.cardRecipe h4 {
   position: relative;
   top: -10%;
   width: 30%;
@@ -68,19 +67,19 @@
   font-size: 11pt;
   color: black;
 }
-.carta li {
+.cardRecipe li {
   list-style: none;
   font-size: 9pt;
 }
 
-.dieta {
+.DietList {
   display: flex;
   align-items: center;
   margin: 0 auto;
   padding: 0 20px;
   height: 150px;
 }
-.ir-a {
+.going {
   height: 200px !important;
   float: left;
   overflow:hidden;

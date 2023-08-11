@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 export default function Card({ id, name, diets, healthScore, image }) {
   return (
-    <div className="carta">
+    <div className="cardRecipe">
      
-      <Link className="ir-a" to={`/recipes/${id}`}>
+      <Link className="going" to={`/recipes/${id}`}>
         <img src={image} alt={name} />
       </Link>
       <Link to={`/recipes/${id}`}>
@@ -15,7 +15,7 @@ export default function Card({ id, name, diets, healthScore, image }) {
       </div>
 
       <p>Health Score: {healthScore}%</p>
-      <div className="dieta">
+      <div className="DietList">
         <h4  key={Math.random()}>Diet type</h4>
         <ul>
           {diets?.map((e) => {
