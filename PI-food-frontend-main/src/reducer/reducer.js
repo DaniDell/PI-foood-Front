@@ -6,6 +6,7 @@ import {
   GET_DETAILS,
   GET_NAME,
   SEARCH_BY_NAME,
+  SET_RECETAS_TOTAL_FROM_PREVIOUS_ROUTE,
 } from "../actions/actions";
 
 const initialState = {
@@ -22,6 +23,13 @@ function rootReducer(state = initialState, { type, payload }) {
         recipes: payload,
         recetasTotal: payload,
       };
+
+      case SET_RECETAS_TOTAL_FROM_PREVIOUS_ROUTE:
+        return {
+          ...state,
+          recetasTotal: payload,
+        };
+         
 
     case FILTER_BY_TYPE:
       if (payload === "All") {

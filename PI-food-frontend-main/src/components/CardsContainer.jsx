@@ -19,11 +19,6 @@ export default function CardsContainer() {
 
   const [filter, setFilter] = useState([]);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    // Desplazar la ventana hacia arriba después de cambiar de página
-    window.scrollTo(0, 0);
-  };
 
   useEffect(() => {
     fetch("http://localhost:3001/diets")
@@ -36,8 +31,11 @@ export default function CardsContainer() {
   }, []);
 
   useEffect(() => {
-    dispatch(getRecipes());
-  }, [dispatch]);
+    // Solo carga los datos iniciales si recetasTotal está vacío
+    if (allRecipes.length === 0) {
+      dispatch(getRecipes());
+    }
+  }, [dispatch, allRecipes]);
 
   function handleClick(e) {
     e.preventDefault();
@@ -66,6 +64,8 @@ export default function CardsContainer() {
     setCurrentPage(1);
     setOrden(`Ordered ${e.target.value}`);
   };
+
+  
 
   return (
     <div className="container">
@@ -105,8 +105,7 @@ export default function CardsContainer() {
     
 
       {currentRecipe?.map((e) =>
-  //e.diets.includes("Not defined") ? null : (
-    <Card
+     <Card
       key={e.id}
       id={e.id}
       name={e.name}
@@ -116,13 +115,12 @@ export default function CardsContainer() {
       diets={e.diets}
       instructions={e.instructions}
     />
-  //)
 )}
 <Paginate
         recipesPerPage={recipesPerPage}
         allRecipes={allRecipes.length}
         paginado={paginado}
-        onPageChange={handlePageChange} // Pasa la función de manejo de cambio de página
+        
       />
     </div>
   );

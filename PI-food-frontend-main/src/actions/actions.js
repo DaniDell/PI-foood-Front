@@ -7,6 +7,8 @@ export const ORDER_BY_SCORE = 'ORDER_BY_SCORE'
 export const GET_DETAILS = 'GET_DETAILS'
 export const GET_NAME = 'GET_NAME'
 export const SEARCH_BY_NAME = 'SEARCH_BY_NAME'
+export const SET_RECETAS_TOTAL_FROM_PREVIOUS_ROUTE = 'SET_RECETAS_TOTAL_FROM_PREVIOUS_ROUTE'
+
 
 
 export function getRecipes(){
@@ -94,3 +96,10 @@ export function postRecipes(payload){
         }
     }
 }
+
+export const setRecetasTotalFromPreviousRoute = (data) => {
+  return {
+    type: SET_RECETAS_TOTAL_FROM_PREVIOUS_ROUTE,
+    payload: data,
+  };
+};
