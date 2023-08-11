@@ -18,16 +18,16 @@
     margin: 0 5px;
     border: none;
     color: #000000;
-    background-color: #ddd7cf;
+    background-color: #ffffff;
     padding: 7px;
     border-radius: 2px;
     cursor: pointer;
 }
 
 .filtros button{
-    color: #fff;
+    color: #ffffff;
     font-weight: 400;
-    font-size: 9pt;
+    font-size: 14pt;
 }
 
 @media (max-width: 768px) {
