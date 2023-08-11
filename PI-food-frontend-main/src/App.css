@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+
+
+button{
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  background-color: #57A773;
+  cursor: pointer;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 50px;
+  position: relative;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+h1::selection, h2::selection, h3::selection, h4::selection, p::selection, span::selection, li::selection, div::selection, a::selection, b::selection{
+  background-color: #57A773;
+  color: #fff;
+}
+

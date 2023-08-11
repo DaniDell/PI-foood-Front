@@ -1,0 +1,11 @@
+.footer {
+    background-color: #484D6D;
+    color: #ffffff;
+    font-size: 11pt;
+    font-weight: 300;
+    width: 100%; 
+    text-align: center; /* Center the content horizontally */
+    position:relative;
+    bottom: 0; /* Stick to the bottom of the viewport */
+    padding: 7px 0;
+  }

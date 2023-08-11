@@ -1,0 +1,77 @@
+:root {
+  --main-color: #57A773;
+  --background-color: white;
+}
+
+.back-container {
+  text-align: left;
+  cursor: pointer; 
+}
+
+
+
+.title{
+  font-size: 24px;
+}
+
+h3 {
+  color: #535353;
+}
+
+.det-cont {
+    width: 70%;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.percent {
+  color: #fff;
+  background-color: var(--main-color);
+  
+  font-size: 24px;
+}
+
+.detalle {
+  display: flex;
+  flex-wrap: wrap; /* Cambiado a wrap para manejar mejor dispositivos pequeños */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Alinear el contenido en dispositivos pequeños */
+}
+
+.cerrar {
+  font-size: 16pt;
+  font-weight: 300;
+  color: #fff;
+  margin: 30px;
+}
+
+.detalle h1 {
+  width: 100%; /* Ocupar todo el ancho en dispositivos pequeños */
+  margin-bottom: 20px;
+}
+
+.detalle img {
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%; /* Cambiado a 50% para crear un círculo */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.diets,
+.dish {
+  width: 100%; /* Ocupar todo el ancho en dispositivos pequeños */
+  padding: 20px 0;
+  text-align: center; /* Alinear el contenido en dispositivos pequeños */
+}
+
+.back {
+  display: inline-block;
+  margin-top: 80px;
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+}

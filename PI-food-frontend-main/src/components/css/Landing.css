@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+.logo-landing {
+  width: 250px; }
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+}
+
+.entrar {
+  font-family: 'Fira Sans', sans-serif;
+  cursor: pointer;
+  background: #000000;
+  color: #ffffff;
+  font-size: 18pt;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 50px;
+  margin: 10px;
+}
+
+.entrar:hover {
+  opacity: 0.8;
+  background:#57A773
+}
+
+.landing-container {
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.dietColumn {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  padding: 5px;
+  background-color: rgba(247, 247, 247, 0.19); 
+}
+
+.dietColumn p {
+  white-space: nowrap; 
+  text-align: start;
+}
+
+.enterColum {
+  flex: 1; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.DietsType {
+  font-size: 15px;
+  padding-right: 20px;
+  height: 200px; 
+  align-content: center;
+}
+
+.DietsType h1{
+  
+  padding-right: 20px;
+  padding-top: 40px;
+  height: 20px; 
+  align-content: center;
+  justify-content: center;
+}
+
+
+
+.entrar{
+  font-family: 'Fira Sans', sans-serif;
+  cursor: pointer;
+  background: #000000;
+  color: #ffffff;
+  font-size: 18pt;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 40px;
+  margin:10px
+}
+
+@media (max-width: 768px) {
+  /* Ajustes para dispositivos móviles */
+  .landing-container {
+    height: 100vh;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column-reverse;
+    align-items: center; /* Centrar elementos en el eje horizontal */
+  }
+
+  .video {
+    left: auto;
+    right: 0;
+  }
+
+    .enterColum {
+    flex: 1;
+    padding: 30px;
+    text-align: center;
+    align-items: center; 
+    height: 100vh;
+  }
+
+  .entrar {
+    padding: 10px 30px;
+  }
+
+  .DietsType {
+    font-size: 11px;
+    padding-right: 0px;
+    height: 200px; 
+    align-content: center;
+  }
+}
+  

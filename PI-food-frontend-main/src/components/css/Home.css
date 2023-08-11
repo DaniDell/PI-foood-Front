@@ -1,0 +1,19 @@
+.home{
+    margin-top: 0px;
+    font-weight: 200;
+    padding: 0px;
+    min-height: 100%;
+    background-image: url("../../img/gareth-hubbard-Z_fl2kybrm0-unsplash.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center center; 
+    
+}
+
+@media (max-width: 768px) {
+    /* Aplicar estos estilos cuando el ancho de la pantalla sea 768px o menos */
+    .home {
+      margin-top: 50px;
+    }
+  }
+  

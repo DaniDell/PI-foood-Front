@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+.carta {
+  display: inline-block;
+  width: 250px;
+  margin: 30px;
+  background-color: #ddd7cf;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); 
+  border-radius: 40px;
+  cursor: pointer;
+  
+}
+
+.carta:hover {
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+
+.carta h2 {
+  font-family: 'Fira Sans', sans-serif;
+    font-size: 14pt;
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;  
+    height: 30px;  
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+}
+
+
+
+.carta img {
+  overflow: hidden;
+  width: 250px;
+  position: relative;
+  top: -10%;
+  height: 250px;
+  object-fit: cover; 
+  object-position: center; 
+   
+}
+
+.carta p {
+  position: relative;
+  top: -5%;
+  font-size: 14pt;
+  background-color: #57A773;
+  display: inline;
+  color: #ddd7cf;
+}
+.carta ul {
+  position: relative;
+  top: -10%;
+  padding: 0;
+  width: 70%;
+  float: right;
+  font-size: 10px;
+  color: black;
+}
+.carta h4 {
+  position: relative;
+  top: -10%;
+  width: 30%;
+  float: left;
+  align-items: start;
+  font-size: 11pt;
+  color: black;
+}
+.carta li {
+  list-style: none;
+  font-size: 9pt;
+}
+
+.dieta {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 150px;
+}
+.ir-a {
+  height: 200px !important;
+  float: left;
+  overflow:hidden;
+}

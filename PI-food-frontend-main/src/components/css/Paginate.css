@@ -1,0 +1,44 @@
+.paginado{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 30px;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.paginado ul{
+    padding: 0;
+    margin: 10px 0 0 0 ;
+}
+
+.paginado li{
+    list-style: none;
+    float: left;
+    cursor: pointer;
+    z-index: 0;
+    
+}
+
+.paginado li a{
+    padding: 5px;
+    font-weight: 700;
+}
+
+.paginado li a:hover{
+    color: black;
+}
+
+.paginado button{
+    font-size: 12pt;
+    font-weight: 600;
+    color: #fff;
+}
+
+
+.active {
+    color: #fff;
+    background-color: #484D6D;
+    
+    
+}

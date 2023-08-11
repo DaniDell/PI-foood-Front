@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+html{
+  margin: 0;
+  height: 100%;
+}
+
+body {  
+  margin: 0 auto;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 14pt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  height: 100%;
+}
+
+h1 {
+  margin: 10px;
+}
+
+a{  text-decoration: none; }
+input{font-family: 'Fira Sans', sans-serif;}
