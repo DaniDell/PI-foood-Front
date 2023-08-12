@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import LogoLanding from '../img/logolanding.png'
+import Diets from '../img/diets.png'
 import video from '../img/video-bg.mp4'
 import "./css/Landing.css"
 
@@ -17,11 +18,10 @@ export default function LandingPage(){
                     <button className="entrar">ENTER</button>
                 </NavLink>
                 </div>
-
-                
+                                
                 <div className="DietsType">
                 
-                    <h1>Diet types included: </h1> <br /><br />
+                    <h1>Choose the diet that fits you </h1> <br /><br />
 
                     <p className="dietColumn">
                 ⚪Omnivorous: Enjoy diverse foods without strict rules.<br /><br />

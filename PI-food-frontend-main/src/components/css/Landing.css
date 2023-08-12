@@ -39,7 +39,7 @@
 }
 
 .dietColumn {
-  flex: 3;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,7 +54,7 @@
 }
 
 .enterColum {
-  flex: 1; 
+  flex: 3; 
   display: flex;
   flex-direction: column; 
   justify-content: center;
