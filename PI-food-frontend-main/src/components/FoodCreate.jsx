@@ -230,16 +230,7 @@ export default function FoodCreate() {
           <div className="options">
             <label  htmlFor="diets" className="label-style"><b>Diet Type:</b></label>
             <div className="checkbox-column"> 
-            <div>
-              <input
-                type="checkbox"
-                name="diets"
-                value="Omnivorous"
-                checked={inputs.diets.includes("Omnivorous")}
-                onChange={handleInputChange}
-              />
-              <label>Omnivorous</label>
-            </div>
+          
             <div>
               <input
                 type="checkbox"
