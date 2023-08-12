@@ -10,6 +10,7 @@
 
 .filterBar {
     display: flex;
+    flex-direction: row;
     width: 100%;
     justify-content: center;
     }
@@ -23,6 +24,7 @@
     background-color: #ffffff;
     padding: 7px;
     border-radius: 5px;
+    margin: 5px;
     cursor: pointer;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); 
 }
@@ -30,7 +32,7 @@
 .filterBar button{
     color: #ffffff;
     font-weight: 400;
-    font-size: 14pt;
+    font-size: 12pt;
 }
 
 @media (max-width: 768px) {
@@ -41,6 +43,7 @@
     }
   
     .filterBar  {
-      max-width: 350px; 
+      max-width: 300px;
+      flex-direction:column; 
     }
   }

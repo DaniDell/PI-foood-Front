@@ -25,7 +25,7 @@ export default function CardsContainer() {
       .then((response) => response.json())
       .then((data) => {
         data.sort(); 
-        data.unshift("All");
+        data.unshift("Select your DietType");
         setFilter(data);
       });
   }, []);
@@ -37,10 +37,10 @@ export default function CardsContainer() {
     }
   }, [dispatch, allRecipes]);
 
-  // function handleClick(e) {
-  //   e.preventDefault();
-  //   dispatch(getRecipes());
-  // }
+  function handleClick(e) {
+    e.preventDefault();
+    dispatch(getRecipes());
+  }
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -80,6 +80,16 @@ export default function CardsContainer() {
           </option>
         </select>
 
+        <select defaultValue="Score" onChange={handleOrderByScore}>
+          <option disabled>Score</option>
+          <option key="mas" value="mas">
+            More Healthy
+          </option>
+          <option key="menos" value="less">
+            Less Healthy
+          </option>
+        </select>
+
         <select onChange={handleFilterByType}>
           {filter
             .filter(option => option !== "Not defined")
@@ -90,17 +100,10 @@ export default function CardsContainer() {
             ))}
         </select>
 
-        <select defaultValue="Score" onChange={handleOrderByScore}>
-          <option disabled>Score</option>
-          <option key="mas" value="mas">
-            More Healthy
-          </option>
-          <option key="menos" value="less">
-            Less Healthy
-          </option>
-        </select>
         
-        {/* <button onClick={handleClick}>All</button> */}
+        <div className="filterReset">
+        <button onClick={handleClick}>Reset all types</button>
+        </div>
       </div>
     
 

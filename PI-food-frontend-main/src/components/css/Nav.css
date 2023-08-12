@@ -20,11 +20,7 @@
 
 @media (max-width: 768px) {
     /* Aplicar estos estilos cuando el ancho de la pantalla sea 768px o menos */
-    .logo {
-      width: 130px;
-    }
-    .img {
-        width: 30px;
-    }
+    .topLabel { height: 160px;}
+    
   }
   
