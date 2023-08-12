@@ -31,13 +31,16 @@
 
 .filterBar button{
     color: #ffffff;
+    background-color: #484D6D;
     font-weight: 400;
     font-size: 12pt;
+    padding: 5px;
+    margin-top: 5px;
 }
 
 @media (max-width: 768px) {
     .container {
-        padding-top: 150px;
+        padding-top: 130px;
         width: auto;
         
     }

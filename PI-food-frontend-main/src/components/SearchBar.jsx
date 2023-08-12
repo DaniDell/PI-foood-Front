@@ -26,6 +26,16 @@ export default function Searchbar() {
   return (
     <div className="buscador">
 
+
+
+      <NavLink className="logo" to={'/'}>
+        <img src={Logo} alt="Logo Henry Food Home" width="180px"></img>
+      </NavLink>
+     
+      <NavLink className="recipeCreate" to={"/foodcreate"}>
+        CREATE NEW RECIPE!
+      </NavLink>
+
       <div className="buscadorLupa">
       <form onSubmit={handleSubmit}>
         <input
@@ -41,14 +51,6 @@ export default function Searchbar() {
         </button>
       </form>
       </div>
-
-      <NavLink className="logo" to={'/'}>
-        <img src={Logo} alt="Logo Henry Food Home" width="130px"></img>
-      </NavLink>
-     
-      <NavLink className="recipeCreate" to={"/foodcreate"}>
-        CREATE NEW RECIPE!
-      </NavLink>
 
       {alertMessage && (
         <div className="alert">

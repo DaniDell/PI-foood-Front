@@ -24,7 +24,7 @@ export default function LandingPage(){
                     <h1>Diet types included: </h1> <br /><br />
 
                     <p className="dietColumn">
-                ⚪Without Restrictions : Enjoy diverse foods without strict rules.<br /><br />
+                ⚪Omnivorous: Enjoy diverse foods without strict rules.<br /><br />
                 ⚪Dairy-Free : Exclude all dairy products due to lactose intolerance or allergies.<br /><br />
                 ⚪FODMAP-Friendly : Reduce hard-to-digest carbs.<br /><br />
                 ⚪Gluten-Free : Eliminate gluten-containing grains for celiac or sensitivity.<br /><br />
