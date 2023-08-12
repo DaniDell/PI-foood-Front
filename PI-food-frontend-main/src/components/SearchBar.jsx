@@ -21,6 +21,12 @@ export default function Searchbar() {
       setAlertMessage("Type something to perform your search");
       return;}
     dispatch(searchByName(name.toLowerCase().trim())); 
+  
+
+     // Aquí reutilizamos la función de reseteo de filtros del componente CardsContainer
+     if (typeof window.cardsContainerResetFilters === 'function') {
+      window.cardsContainerResetFilters();
+    }
   }
 
   return (

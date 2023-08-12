@@ -19,6 +19,15 @@ export default function CardsContainer() {
 
   const [filter, setFilter] = useState([]);
 
+  const resetFilters = () => {
+    // Aquí puedes resetear los filtros
+    setFilter([]);
+  };
+
+  // Exponer la función resetFilters en el objeto window para que sea accesible desde otros componentes
+  if (typeof window !== 'undefined') {
+    window.cardsContainerResetFilters = resetFilters;
+  }
 
   useEffect(() => {
     fetch("http://localhost:3001/diets")
@@ -30,6 +39,7 @@ export default function CardsContainer() {
       });
   }, []);
 
+  
   useEffect(() => {
     // Solo carga los datos iniciales si recetasTotal está vacío
     if (allRecipes.length === 0) {
