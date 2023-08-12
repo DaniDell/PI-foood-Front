@@ -37,10 +37,10 @@ export default function CardsContainer() {
     }
   }, [dispatch, allRecipes]);
 
-  function handleClick(e) {
-    e.preventDefault();
-    dispatch(getRecipes());
-  }
+  // function handleClick(e) {
+  //   e.preventDefault();
+  //   dispatch(getRecipes());
+  // }
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -69,7 +69,7 @@ export default function CardsContainer() {
 
   return (
     <div className="container">
-      <div className="filtros">
+      <div className="filterBar">
         <select defaultValue="Order" onChange={handleOrderByName}>
           <option disabled>Order</option>
           <option key="asc" value="asc">
@@ -100,7 +100,7 @@ export default function CardsContainer() {
           </option>
         </select>
         
-        <button onClick={handleClick}>All</button>
+        {/* <button onClick={handleClick}>All</button> */}
       </div>
     
 
