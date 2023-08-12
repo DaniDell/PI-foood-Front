@@ -10,6 +10,8 @@ export default function validation(inputs) {
 
   if (inputs.healthScore > 100)
     errors.healthScore = "Cannot be greater than 100";
+    if (inputs.healthScore < 1)
+    errors.healthScore = "Cannot be lower than 0";
 
 
   if (inputs.summary === "") errors.summary = "Summary is missing!";

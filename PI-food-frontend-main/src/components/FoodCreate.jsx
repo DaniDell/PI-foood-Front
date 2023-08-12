@@ -30,21 +30,29 @@ export default function FoodCreate() {
 
   async function createRecipe(userData) {
     try {
-      
-      await fetch("http://localhost:3001/recipes", {
+      const response = await fetch("http://localhost:3001/recipes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
-      console.log(userData);
-      showAlert("success", "Recipe created successfully!");
+  
+      if (response.ok) {
+        console.log(userData);
+        showAlert("success", "Recipe created successfully!");
+      } else {
+        const data = await response.json();
+        console.log("Error creating recipe:", data.error);
+        showAlert("error", data.error);
+      }
     } catch (error) {
       console.log(error);
-      showAlert("error", "Please complete all fields");
+      showAlert("error", "Recipe already exists in the database");
     }
   }
+  
+  
 
   const [inputs, setInputs] = useState({
     title: "",

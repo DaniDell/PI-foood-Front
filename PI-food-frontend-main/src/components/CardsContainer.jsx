@@ -102,7 +102,7 @@ export default function CardsContainer() {
 
         
         <div className="filterReset">
-        <button onClick={handleClick}>Restore all types of diets</button>
+        <button onClick={handleClick}>Refresh recipes</button>
         </div>
       </div>
     
