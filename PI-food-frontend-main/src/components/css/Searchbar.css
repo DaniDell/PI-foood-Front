@@ -52,7 +52,7 @@
 
 .logo{float: left;
   position: relative;
-  padding:  0 50px 5px 5px;
+  padding:  0 30px 5px 25px;
   margin: 10px;
 }
 .logo:hover{opacity: 0.8;}
@@ -143,8 +143,10 @@ top: -135px;
       margin: 0px;
      }
 
-     .logo a{
+     .logo{
+      
+      padding:  0 20px 0px 0px;
       margin: 0px;
-     }
+    }
   }
   
