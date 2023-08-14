@@ -5,11 +5,14 @@ import { getRecipes, filterRecipesByType, orderByName, orderByScore } from "../a
 import Card from "./Card";
 import Paginate from "./Paginate";
 import "./css/CardsContainer.css";
+import LoadingAnimation from './LooadingSpiner';
+
+
 
 export default function CardsContainer() {
   const dispatch = useDispatch();
   const allRecipes = useSelector((state) => state.recetasTotal);
-
+  const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [orden, setOrden] = useState("");
   const recipesPerPage = 9;
@@ -30,12 +33,15 @@ export default function CardsContainer() {
   }
 
   useEffect(() => {
+    setIsLoading(true); // Comienza la animación de carga
+  
     fetch("http://localhost:3001/diets")
       .then((response) => response.json())
       .then((data) => {
-        data.sort(); 
+        data.sort();
         data.unshift("Select your DietType");
         setFilter(data);
+        setIsLoading(false); // Finaliza la animación de carga
       });
   }, []);
 
@@ -89,7 +95,7 @@ export default function CardsContainer() {
             Descending
           </option>
         </select>
-
+  
         <select defaultValue="Score" onChange={handleOrderByScore}>
           <option disabled>Score</option>
           <option key="mas" value="mas">
@@ -99,7 +105,7 @@ export default function CardsContainer() {
             Less Healthy
           </option>
         </select>
-
+  
         <select onChange={handleFilterByType}>
           {filter
             .filter(option => option !== "Not defined")
@@ -109,32 +115,37 @@ export default function CardsContainer() {
               </option>
             ))}
         </select>
-
-        
+  
         <div className="filterReset">
-        <button onClick={handleClick}>Refresh recipes</button>
+          <button onClick={handleClick}>Refresh recipes</button>
         </div>
       </div>
-    
-
-      {currentRecipe?.map((e) =>
-     <Card
-      key={e.id}
-      id={e.id}
-      name={e.name}
-      summary={e.summary}
-      healthScore={e.healthScore}
-      image={e.image}
-      diets={e.diets}
-      instructions={e.instructions}
-    />
-)}
-<Paginate
-        recipesPerPage={recipesPerPage}
-        allRecipes={allRecipes.length}
-        paginado={paginado}
-        
-      />
+  
+      {isLoading ? (
+        // Mostrar animación de carga
+        <LoadingAnimation />
+      ) : (
+        // Mostrar las tarjetas y paginación una vez que los datos estén listos
+        <>
+          {currentRecipe?.map((e) => (
+            <Card
+              key={e.id}
+              id={e.id}
+              name={e.name}
+              summary={e.summary}
+              healthScore={e.healthScore}
+              image={e.image}
+              diets={e.diets}
+              instructions={e.instructions}
+            />
+          ))}
+          <Paginate
+            recipesPerPage={recipesPerPage}
+            allRecipes={allRecipes.length}
+            paginado={paginado}
+          />
+        </>
+      )}
     </div>
   );
-}
+          }

@@ -1,0 +1,25 @@
+css
+Copy code
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Cambiamos align-items para alinear en la parte superior */
+  height: 100vh;
+  font-size: 1.5rem;
+  margin-top: 20vh; /* Agregamos margen superior para posicionarlo más arriba */
+}
+
+  @media (prefers-reduced-motion: no-preference) {
+    .loading-animation {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

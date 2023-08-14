@@ -35,7 +35,7 @@ export default function Searchbar() {
 
 
       <NavLink className="logo" to={'/'}>
-        <img src={Logo} alt="Logo Henry Food Home" width="180px"></img>
+        <img src={Logo} alt="Logo Henry Food Home" width="140px"></img>
       </NavLink>
      
       <NavLink className="recipeCreate" to={"/foodcreate"}>

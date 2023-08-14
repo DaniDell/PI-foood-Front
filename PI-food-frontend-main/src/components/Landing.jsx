@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import LogoLanding from '../img/logolanding.png'
-import Diets from '../img/diets.png'
 import video from '../img/video-bg.mp4'
 import "./css/Landing.css"
 
@@ -20,21 +19,19 @@ export default function LandingPage(){
                 </div>
                                 
                 <div className="DietsType">
-                
-                    <h1>Choose the diet that fits you </h1> <br /><br />
-
-                    <p className="dietColumn">
-                ⚪Omnivorous: Enjoy diverse foods without strict rules.<br /><br />
-                ⚪Dairy-Free : Exclude all dairy products due to lactose intolerance or allergies.<br /><br />
-                ⚪FODMAP-Friendly : Reduce hard-to-digest carbs.<br /><br />
-                ⚪Gluten-Free : Eliminate gluten-containing grains for celiac or sensitivity.<br /><br />
-                ⚪Ketogenic: High fats, low carbs for ketosis, aiding weight loss.<br /><br />
-                ⚪Lacto-Ovo Vegetarian: No meat, seafood; dairy and eggs included .<br /><br />
-                ⚪Paleolithic (Paleo): Modelled after ancestral eating, whole foods emphasized.<br /><br />
-                ⚪Pescatarian : Seafood, fish included; plant-based yet marine-rich.<br /><br />
-                ⚪Primal : Like paleo, some dairy allowed; emphasizes local, organic foods.<br /><br />
-                ⚪Vegan : Exclude all animal products; plant-based .<br /><br />
-                ⚪Whole30 Diet: 30-day reset, cut out certain foods; reintroduce gradually.<br /><br />
+                <p className="dietColumn">
+  <span className="first-line">Write and discover recipes that fit your diet:</span> <br /> <br /><br />
+  🖋️Omnivorous: Enjoy diverse foods without strict rules.<br /><br />
+  🖋️Dairy-Free : Exclude all dairy products.<br /><br />
+  🖋️FODMAP-Friendly : Reduce hard-to-digest carbs.<br /><br />
+  🖋️Gluten-Free : Eliminate gluten-containing grains for celiac or sensitivity.<br /><br />
+  🖋️Ketogenic: High fats, low carbs for ketosis, aiding weight loss.<br /><br />
+  🖋️Lacto-Ovo Vegetarian: No meat, seafood; dairy and eggs included .<br /><br />
+  🖋️Paleolithic: Modelled after ancestral eating, whole foods emphasized.<br /><br />
+  🖋️Pescatarian : Seafood, fish included; plant-based yet marine-rich.<br /><br />
+  🖋️Primal : Like paleo, some dairy allowed; emphasizes local, organic foods.<br /><br />
+  🖋️Vegan : Exclude all animal products; plant-based .<br /><br />
+  🖋️Whole30 Diet: 30-day reset, cut out certain foods; reintroduce gradually.<br /><br />
 </p>
 
         </div>

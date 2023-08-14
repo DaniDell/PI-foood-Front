@@ -52,7 +52,8 @@
 
 .logo{float: left;
   position: relative;
-  padding:  0 50px 5px 0;
+  padding:  0 50px 5px 5px;
+  margin: 10px;
 }
 .logo:hover{opacity: 0.8;}
 

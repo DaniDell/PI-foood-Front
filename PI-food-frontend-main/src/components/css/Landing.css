@@ -39,19 +39,31 @@
 }
 
 .dietColumn {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: start;
-  padding: 5px;
-  background-color: rgba(247, 247, 247, 0.19); 
+  padding: 15px;
+  background-color: rgba(247, 247, 247, 0.19);
+  font-size: 16px;
+  
+}
+
+.first-line {
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .dietColumn p {
   white-space: nowrap; 
   text-align: start;
 }
+
+.dietColumn h1 {
+  white-space: nowrap; 
+  text-align: start;
+}
+
 
 .enterColum {
   flex: 3; 
