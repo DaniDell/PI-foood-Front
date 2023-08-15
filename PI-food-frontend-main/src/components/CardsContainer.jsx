@@ -102,19 +102,20 @@ export default function CardsContainer() {
   return (
     <div className="container">
       <div className="filterBar">
-        
-        <select defaultValue="Order" onChange={handleOrderByName}>
-          <option  key="A" disabled>Alphabetical order</option>
-          <option key="asc" value="asc">
-            Ascending A-Z
-          </option>
-          <option key="desc" value="desc">
-            Descending Z-A
-          </option>
+      <select onChange={handleFilterByType}>
+          {filter
+            .filter(option => option !== "Not defined")
+            .map((d, index) => (
+              <option key={index} value={d}>
+                {d}
+              </option>
+            ))}
         </select>
+
+        
   
         <select defaultValue="Score" onChange={handleOrderByScore}>
-          <option key="H" disabled>Health Score</option>
+          <option key="H" value="">Health Score</option>
           
           <option key="menos" value="less">
             Less Healthy
@@ -124,14 +125,14 @@ export default function CardsContainer() {
           </option>
         </select>
   
-        <select onChange={handleFilterByType}>
-          {filter
-            .filter(option => option !== "Not defined")
-            .map((d, index) => (
-              <option key={index} value={d}>
-                {d}
-              </option>
-            ))}
+        <select defaultValue="Order" onChange={handleOrderByName}>
+          <option  key="A" value="">Alphabetical order</option>
+          <option key="asc" value="asc">
+            Ascending A-Z
+          </option>
+          <option key="desc" value="desc">
+            Descending Z-A
+          </option>
         </select>
   
         <div className="filterReset">
