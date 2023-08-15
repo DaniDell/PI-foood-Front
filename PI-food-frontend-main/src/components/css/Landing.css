@@ -45,8 +45,7 @@
   text-align: start;
   padding: 15px;
   background-color: rgba(247, 247, 247, 0.19);
-  font-size: 16px;
-  
+  font-size: 16px; 
 }
 
 .first-line {
@@ -108,11 +107,11 @@
 @media (max-width: 768px) {
   /* Ajustes para dispositivos móviles */
   .landing-container {
-    height: 100vh;
+    height: auto; /* Cambiamos la altura a automático para que se ajuste al contenido */
     display: flex;
     position: relative;
     overflow: hidden;
-    flex-direction: column-reverse;
+    flex-direction: column; /* Cambiamos column-reverse por column */
     align-items: center; /* Centrar elementos en el eje horizontal */
   }
 
@@ -121,23 +120,33 @@
     right: 0;
   }
 
-    .enterColum {
+  .enterColum {
     flex: 1;
     padding: 30px;
     text-align: center;
-    align-items: center; 
-    height: 100vh;
+    align-items: center;
+    height: auto; /* Cambiamos la altura a automático para que se ajuste al contenido */
   }
 
   .entrar {
     padding: 10px 30px;
   }
 
+  .dietColumn {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    text-align: start;
+    padding: 15px;
+    background-color: rgba(247, 247, 247, 0.19);
+    font-size: 11px;
+  }
+
   .DietsType {
+    flex: 1;
     font-size: 11px;
     padding-right: 0px;
-    height: 200px; 
+    height: 200px;
     align-content: center;
   }
 }
-  
