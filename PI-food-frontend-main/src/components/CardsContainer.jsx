@@ -1,39 +1,30 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipes, filterRecipesByType, orderByName, orderByScore } from "../actions/actions";
+import { getRecipes, filterRecipesByType, orderByName, orderByScore, getDiets, resetFilters, setPage } from "../actions/actions";
 import Card from "./Card";
 import Paginate from "./Paginate";
 import "./css/CardsContainer.css";
 import LoadingAnimation from './LooadingSpiner';
 
-
-
 export default function CardsContainer() {
-
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
-
+  const [mounted, setMounted] = useState(false);
   const allRecipes = useSelector((state) => state.filterRecipes);
-  const [currentPage, setCurrentPage] = useState(1);
+  const currentPage = useSelector((state) => state.currentPage); 
+
   const recipesPerPage = 9;
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipe = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
-  
   const [orden, setOrden] = useState("");
   const [filter, setFilter] = useState([]);
 
-  const resetFilters = () => {
-    setFilter([]);
+  const handleResetFilters = () => {
+    dispatch(resetFilters()); // Llama a la acción para restablecer los filtros
   };
-
-  // Exponer la función resetFilters en el objeto window para que sea accesible desde otros componentes
-  if (typeof window !== 'undefined') {
-    window.cardsContainerResetFilters = resetFilters;
-  }
 
   useEffect(() => {
     setIsLoading(true); // Comienza la animación de carga
@@ -44,18 +35,21 @@ export default function CardsContainer() {
         data.sort();
         data.unshift("Select your DietType");
         setFilter(data);
+        dispatch(getDiets(data)); 
         setIsLoading(false); // Finaliza la animación de carga
       });
   }, []);
-  
-  useEffect(() => {
-    // Solo carga los datos iniciales si filterRecipes está vacío
-    if (allRecipes.length === 0) {
 
-      dispatch(getRecipes());
+  useEffect(() => {
+    if (!mounted) {
+      // Solo carga los datos iniciales si allRecipes está vacío en el montaje inicial
+      if (allRecipes.length === 0) {
+        dispatch(getRecipes());
+      }
+      setMounted(true);
     }
-  }, [dispatch, allRecipes]);
-  
+  }, [dispatch, allRecipes, mounted]);
+
   // Ahora agrega otro useEffect para cargar los diet types cada vez que el componente se renderice
   useEffect(() => {
     fetch("http://localhost:3001/diets")
@@ -67,36 +61,24 @@ export default function CardsContainer() {
       });
   }, []);
   
-
-  function handleClick(e) {
-    e.preventDefault();    
-    dispatch(getRecipes());
-  }
-
-  const paginado = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
   const handleFilterByType = (e) => {
     if (e.target.value !== "Not defined") {
       dispatch(filterRecipesByType(e.target.value));
-      setCurrentPage(1);
+      dispatch(setPage(1)); // Reinicia la página al filtrar
     } 
   };
   
   const handleOrderByName = (e) => {
     dispatch(orderByName(e.target.value));
-    setCurrentPage(1);
+    dispatch(setPage(1)); // Reinicia la página al ordenar
     setOrden(`Ordered ${e.target.value}`);
   };
 
   const handleOrderByScore = (e) => {
     dispatch(orderByScore(e.target.value));
-    setCurrentPage(1);
+    dispatch(setPage(1)); // Reinicia la página al ordenar
     setOrden(`Ordered ${e.target.value}`);
   };
-
-  
 
   return (
     <div className="container">
@@ -135,7 +117,7 @@ export default function CardsContainer() {
         </select>
   
         <div className="filterReset">
-          <button onClick={handleClick} >Refresh recipes</button>
+          <button onClick={handleResetFilters} >Refresh recipes</button>
         </div>
       </div>
   
@@ -160,7 +142,6 @@ export default function CardsContainer() {
           <Paginate
             recipesPerPage={recipesPerPage}
             allRecipes={allRecipes.length}
-            paginado={paginado}
           />
         </>
       )}

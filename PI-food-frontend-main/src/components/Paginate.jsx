@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./css/Paginate.css";
+import { setPage } from "../actions/actions"; 
 
-export default function Paginate({ allRecipes, paginado }) {
-  const [currentPage, setCurrentPage] = useState(1);
+export default function Paginate({ allRecipes }) {
+  const dispatch = useDispatch();
+  const currentPage = useSelector((state) => state.currentPage);
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= pageNumbers.length) {
-      setCurrentPage(newPage);
-      paginado(newPage);
+      dispatch(setPage(newPage)); // Actualiza la página en el estado de Redux
     }
   };
 
