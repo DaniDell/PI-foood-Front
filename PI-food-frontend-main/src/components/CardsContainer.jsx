@@ -51,7 +51,7 @@ export default function CardsContainer() {
   useEffect(() => {
     // Solo carga los datos iniciales si filterRecipes está vacío
     if (allRecipes.length === 0) {
-      
+
       dispatch(getRecipes());
     }
   }, [dispatch, allRecipes]);
@@ -69,8 +69,7 @@ export default function CardsContainer() {
   
 
   function handleClick(e) {
-    e.preventDefault();
-    
+    e.preventDefault();    
     dispatch(getRecipes());
   }
 
@@ -115,7 +114,7 @@ export default function CardsContainer() {
         
   
         <select defaultValue="Score" onChange={handleOrderByScore}>
-          <option key="H" value="">Health Score</option>
+          <option key="H" value="">Health Score order</option>
           
           <option key="menos" value="less">
             Less Healthy
