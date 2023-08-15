@@ -97,23 +97,14 @@ export default function CardsContainer() {
   
         <select defaultValue="Score" onChange={handleOrderByScore}>
           <option key="H" value="">Health Score order</option>
-          
-          <option key="menos" value="less">
-            Less Healthy
-          </option>
-          <option key="mas" value="more">
-            More Healthy
-          </option>
+          <option key="menos" value="less"> Less Healthy </option>
+          <option key="mas" value="more">   More Healthy </option>
         </select>
   
         <select defaultValue="Order" onChange={handleOrderByName}>
           <option  key="A" value="">Alphabetical order</option>
-          <option key="asc" value="asc">
-            Ascending A-Z
-          </option>
-          <option key="desc" value="desc">
-            Descending Z-A
-          </option>
+          <option key="asc" value="asc"> Ascending A-Z </option>
+          <option key="desc" value="desc"> Descending Z-A </option>
         </select>
   
         <div className="filterReset">
