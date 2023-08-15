@@ -20,7 +20,7 @@ export default function LandingPage(){
                                 
                 <div className="DietsType">
                 <p className="dietColumn">
-  <span className="first-line">Write and discover recipes that fit your diet:</span> <br /> <br /><br />
+  <span className="first-line">Write and discover recipes that fit your diet:</span> <br /> <br /><br /><br /><br /><br /><br />
   🖋️Omnivorous: Enjoy diverse foods without strict rules.<br /><br />
   🖋️Dairy-Free : Exclude all dairy products.<br /><br />
   🖋️FODMAP-Friendly : Reduce hard-to-digest carbs.<br /><br />

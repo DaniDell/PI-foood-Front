@@ -108,7 +108,7 @@ export default function CardsContainer() {
     value={orden} // Cambia esta línea
     onChange={handleOrderByScore}
   >
-    <option value="">Select an option</option>
+    <option value="" >Select an option</option>
     <option value="less">Less Healthy</option>
     <option value="more">More Healthy</option>
   </select>

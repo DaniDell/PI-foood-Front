@@ -140,13 +140,14 @@
     padding: 15px;
     background-color: rgba(247, 247, 247, 0.19);
     font-size: 11px;
+    
   }
 
   .DietsType {
     flex: 1;
     font-size: 11px;
     padding-right: 0px;
-    height: 200px;
+    height: 2000px;
     align-content: center;
   }
 }
