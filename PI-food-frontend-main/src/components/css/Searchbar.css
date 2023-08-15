@@ -14,20 +14,21 @@
 
 .buscador form {
   margin: 0 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
 }
 
 .buscador input{
     font-weight: 100;
     border: none;
     border-radius: 40px;
-    background: #e8e8e8;
     padding: 10px 10px;
     margin-right: 10px;
     font-size: 12pt;
     }
 
-.buscar{
-    color: #ffffff;
+.buscar button{
+    
     font-weight: 500;
     font-size: 16pt;
 }

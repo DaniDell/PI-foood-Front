@@ -31,16 +31,17 @@
 
 .paginado button{
    
- 
+ color: black;
   border: none;
   padding: 5px 10px;
   margin: 0 5px;
-  cursor: pointer;}
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); }
 
 
 .active {
     color: #fff;
-    background-color: #484D6D;      
+    background-color: #57A773 ;      
 }
 
 .paginado .flecha {

@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     justify-content:  center;
     width: 100%;
-    padding-top: 125px;
+    padding-top: 140px;
 }
 
 .active-filter {
@@ -20,10 +20,18 @@
     justify-content: center;
     }
 
+.filterDiet {
+    width: 300px;
+    margin: 10px;}
+
+    .filterDiet select{
+        width: 250px;
+    }
+
+
 .filterBar select{
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
-
     column-gap: 10px;
     margin: 0 15px;
     border: none;
@@ -103,11 +111,17 @@
 
     .filterSelect1, .filterSelect2 {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
-        
         width: 200px;
+        margin: 5px 0 5px 0 ;
         }
+
+        .filterSelect1 label, .filterSelect2 label{
+                       
+            align-items: center;
+            margin: 0;           
+            }
 
        
   }

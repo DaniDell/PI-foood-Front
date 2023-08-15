@@ -88,6 +88,7 @@ export default function CardsContainer() {
   return (
     <div className="container">
       <div className="filterBar">
+        <div className="filterDiet"> 
       <select onChange={handleFilterByType}>
           {filter
             .filter(option => option !== "Not defined")
@@ -96,7 +97,7 @@ export default function CardsContainer() {
                 {d}
               </option>
             ))}
-        </select>
+        </select></div>
 
         
         <div className="filterSelect1">
