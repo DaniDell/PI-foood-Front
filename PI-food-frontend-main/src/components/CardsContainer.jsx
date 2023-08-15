@@ -69,12 +69,17 @@ export default function CardsContainer() {
   };
   
   const handleOrderByName = (e) => {
+    console.log("handleOrderByName called");
+  console.log("Value:", e.target.value);
+
     dispatch(orderByName(e.target.value));
     dispatch(setPage(1)); // Reinicia la página al ordenar
     setOrden(`Ordered ${e.target.value}`);
   };
 
   const handleOrderByScore = (e) => {
+    console.log("handleOrderByScore called");
+    console.log("Value:", e.target.value);
     dispatch(orderByScore(e.target.value));
     dispatch(setPage(1)); // Reinicia la página al ordenar
     setOrden(`Ordered ${e.target.value}`);
@@ -94,18 +99,34 @@ export default function CardsContainer() {
         </select>
 
         
-  
-        <select defaultValue="Score" onChange={handleOrderByScore}>
-          <option key="H" value="">Health Score order</option>
-          <option key="menos" value="less"> Less Healthy </option>
-          <option key="mas" value="more">   More Healthy </option>
-        </select>
-  
-        <select defaultValue="Order" onChange={handleOrderByName}>
-          <option  key="A" value="">Alphabetical order</option>
-          <option key="asc" value="asc"> Ascending A-Z </option>
-          <option key="desc" value="desc"> Descending Z-A </option>
-        </select>
+        <div className="filterSelect1">
+  <label>
+   Health Score order
+  </label>
+  <select
+    value={orden} // Cambia esta línea
+    onChange={handleOrderByScore}
+  >
+    <option value="">Select an option</option>
+    <option value="less">Less Healthy</option>
+    <option value="more">More Healthy</option>
+  </select>
+</div>
+
+<div className="filterSelect2">
+  <label>
+    Alphabetical order
+  </label>
+  <select
+    value={orden} // Cambia esta línea
+    onChange={handleOrderByName}
+  >
+    <option value="">Select an option</option>
+    <option value="asc">Ascending A-Z</option>
+    <option value="desc">Descending Z-A</option>
+  </select>
+</div>
+
   
         <div className="filterReset">
           <button onClick={handleResetFilters} >Refresh recipes</button>
