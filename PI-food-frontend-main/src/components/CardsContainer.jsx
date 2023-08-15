@@ -10,20 +10,23 @@ import LoadingAnimation from './LooadingSpiner';
 
 
 export default function CardsContainer() {
+
   const dispatch = useDispatch();
-  const allRecipes = useSelector((state) => state.recetasTotal);
+
   const [isLoading, setIsLoading] = useState(true);
+
+  const allRecipes = useSelector((state) => state.filterRecipes);
   const [currentPage, setCurrentPage] = useState(1);
-  const [orden, setOrden] = useState("");
   const recipesPerPage = 9;
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipe = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
+  
+  const [orden, setOrden] = useState("");
   const [filter, setFilter] = useState([]);
 
   const resetFilters = () => {
-    // Aquí puedes resetear los filtros
     setFilter([]);
   };
 
@@ -34,7 +37,7 @@ export default function CardsContainer() {
 
   useEffect(() => {
     setIsLoading(true); // Comienza la animación de carga
-  
+    
     fetch("http://localhost:3001/diets")
       .then((response) => response.json())
       .then((data) => {
@@ -44,17 +47,30 @@ export default function CardsContainer() {
         setIsLoading(false); // Finaliza la animación de carga
       });
   }, []);
-
   
   useEffect(() => {
-    // Solo carga los datos iniciales si recetasTotal está vacío
+    // Solo carga los datos iniciales si filterRecipes está vacío
     if (allRecipes.length === 0) {
+      
       dispatch(getRecipes());
     }
   }, [dispatch, allRecipes]);
+  
+  // Ahora agrega otro useEffect para cargar los diet types cada vez que el componente se renderice
+  useEffect(() => {
+    fetch("http://localhost:3001/diets")
+      .then((response) => response.json())
+      .then((data) => {
+        data.sort();
+        data.unshift("Select your DietType");
+        setFilter(data);
+      });
+  }, []);
+  
 
   function handleClick(e) {
     e.preventDefault();
+    
     dispatch(getRecipes());
   }
 
@@ -86,23 +102,25 @@ export default function CardsContainer() {
   return (
     <div className="container">
       <div className="filterBar">
+        
         <select defaultValue="Order" onChange={handleOrderByName}>
-          <option disabled>Order</option>
+          <option  key="A" disabled>Alphabetical order</option>
           <option key="asc" value="asc">
-            Ascending
+            Ascending A-Z
           </option>
           <option key="desc" value="desc">
-            Descending
+            Descending Z-A
           </option>
         </select>
   
         <select defaultValue="Score" onChange={handleOrderByScore}>
-          <option disabled>Score</option>
-          <option key="mas" value="mas">
-            More Healthy
-          </option>
+          <option key="H" disabled>Health Score</option>
+          
           <option key="menos" value="less">
             Less Healthy
+          </option>
+          <option key="mas" value="more">
+            More Healthy
           </option>
         </select>
   
@@ -117,15 +135,15 @@ export default function CardsContainer() {
         </select>
   
         <div className="filterReset">
-          <button onClick={handleClick}>Refresh recipes</button>
+          <button onClick={handleClick} >Refresh recipes</button>
         </div>
       </div>
   
       {isLoading ? (
-        // Mostrar animación de carga
+        
         <LoadingAnimation />
       ) : (
-        // Mostrar las tarjetas y paginación una vez que los datos estén listos
+        
         <>
           {currentRecipe?.map((e) => (
             <Card

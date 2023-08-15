@@ -8,6 +8,11 @@
     padding-top: 125px;
 }
 
+.active-filter {
+    background-color: #46914c; /* Cambia esto por el color que prefieras */
+    font-weight: bold;
+  }
+
 .filterBar {
     display: flex;
     flex-direction: row;
@@ -36,6 +41,7 @@
     font-size: 12pt;
     padding: 8px;
     margin-top: 5px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); 
 }
 
 @media (max-width: 768px) {

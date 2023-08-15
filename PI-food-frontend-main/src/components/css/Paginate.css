@@ -30,15 +30,25 @@
 }
 
 .paginado button{
-    font-size: 12pt;
-    font-weight: 600;
-    color: #fff;
-}
+   
+ 
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;}
 
 
 .active {
     color: #fff;
-    background-color: #484D6D;
-    
-    
+    background-color: #484D6D;      
 }
+
+.paginado .flecha {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: black;
+    font-size: 18px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+  }

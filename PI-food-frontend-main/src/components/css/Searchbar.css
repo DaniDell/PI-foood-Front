@@ -62,16 +62,17 @@ top: -135px;
 }
 
 .alert {
-    background-color: #EE6352;
+    background-color: white;
     display: flex;
     align-items: center;
-    border: 1px solid #EE6352;
+    border: 2px solid #EE6352;
     color: #000000;
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 10px;
     border-radius: 30px;
     position: fixed;
-    top: 45px;
+    top: 30px;
+    right:100px;
     
   }
   

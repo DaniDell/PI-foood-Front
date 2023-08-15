@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./css/Paginate.css";
 
-export default function Paginate({  allRecipes, paginado }) {
+export default function Paginate({ allRecipes, paginado }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (newPage) => {
@@ -22,22 +22,22 @@ export default function Paginate({  allRecipes, paginado }) {
     <nav className="paginado">
       <ul>
         <li>
-          <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+          <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="flecha">
             {"<<"}
           </button>
         </li>
         {pageNumbers.map((number) => (
           <li key={number}>
-            <a
+            <button
               className={currentPage === number ? "active" : ""}
               onClick={() => handlePageChange(number)}
             >
               {number}
-            </a>
+            </button>
           </li>
         ))}
         <li>
-          <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage >= pageNumbers.length}>
+          <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage >= pageNumbers.length}className="flecha">
             {">>"}
           </button>
         </li>
