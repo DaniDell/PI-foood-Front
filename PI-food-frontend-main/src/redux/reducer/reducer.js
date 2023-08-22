@@ -5,7 +5,7 @@ import {
   ORDER_BY_SCORE,
   GET_NAME,
   SEARCH_BY_NAME,
-  GET_DIETS,
+  
   RESET_FILTERS,
   SET_PAGE
 } from "../actions/actions";
@@ -13,7 +13,6 @@ import {
 const initialState = {
   recipes: [],
   filterRecipes: [],
-  diets: [],
   currentPage: 1,
 };
 
@@ -26,13 +25,7 @@ function rootReducer(state = initialState, { type, payload }) {
         recipes: payload,
         filterRecipes: payload,
       };
-
-      case GET_DIETS:
-        return {
-          ...state,
-          diets: payload,
-        }; 
-        
+              
         case RESET_FILTERS:
           return {
             ...state,

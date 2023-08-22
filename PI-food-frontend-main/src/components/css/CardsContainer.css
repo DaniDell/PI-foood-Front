@@ -58,7 +58,7 @@
 
 .filterSelect1 {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   width: 160px;
@@ -67,7 +67,7 @@
 
   .filterSelect2 {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     width: 160px;

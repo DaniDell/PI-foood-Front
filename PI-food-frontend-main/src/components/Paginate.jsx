@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./css/Paginate.css";
-import { setPage } from "../actions/actions"; 
+import { setPage } from "../redux/actions/actions"; 
 
 export default function Paginate({ allRecipes }) {
   const dispatch = useDispatch();

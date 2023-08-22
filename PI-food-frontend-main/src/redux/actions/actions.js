@@ -6,7 +6,6 @@ export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_SCORE = 'ORDER_BY_SCORE';
 export const GET_NAME = 'GET_NAME';
 export const SEARCH_BY_NAME = 'SEARCH_BY_NAME';
-export const GET_DIETS = 'GET_DIETS';
 export const RESET_FILTERS = 'RESET_FILTERS';
 export const SET_PAGE = 'SET_PAGE';
 
@@ -25,10 +24,6 @@ export function getRecipes() {
   };
 }
 
-export const getDiets = (diets) => ({
-  type: GET_DIETS,
-  payload: diets,
-});
 
 export const resetFilters = () => ({
   type: RESET_FILTERS,

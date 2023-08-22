@@ -2,9 +2,7 @@ export default function validation(inputs) {
   const errors = {};
 
   if (inputs.title === "") errors.title = "Title is missing!";
-  if (inputs.title.length > 0 && inputs.title.length < 140)
-    errors.title = `You have ${140 - inputs.title.length} characters left`;
-  if (inputs.title.length > 140)
+    if (inputs.title.length > 140)
     errors.title = "Title must be less than 140 characters";
 
 
@@ -15,8 +13,9 @@ export default function validation(inputs) {
 
 
   if (inputs.summary === "") errors.summary = "Summary is missing!";
-  if (inputs.summary.length > 0 && inputs.summary.length < 255)
-    errors.summary = `You have ${255 - inputs.summary.length} characters left`;
+  if (inputs.summary.length > 255) {
+    errors.summary = "Summary cannot exceed 255 characters";}
+  
 
     if (inputs.image === "") {
       errors.image = "This field is required";
@@ -25,11 +24,11 @@ export default function validation(inputs) {
     
       if (!allowedExtensions.test(inputs.image)) {
         errors.image = "The URL has to end with .jpg or .png";
-      }
+      } 
     }
 
     if (inputs.diets === "")
-    errors.diets = "At least you should choose a diet type";
+    errors.diets = "At least you should choose 1 diet type";
 
-  return errors;
+    return  errors;;
 }

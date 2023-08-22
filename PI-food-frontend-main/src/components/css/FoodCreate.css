@@ -128,8 +128,9 @@
 }
 
 .food-create span {
-  color: rgb(145, 145, 145);
+  color: rgb(255, 0, 0);
 }
+
 
 .food-create a {
   cursor: pointer;

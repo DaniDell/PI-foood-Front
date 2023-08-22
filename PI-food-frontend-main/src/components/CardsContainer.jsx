@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipes, filterRecipesByType, orderByName, orderByScore, getDiets, resetFilters, setPage } from "../actions/actions";
+import { getRecipes, filterRecipesByType, orderByName, orderByScore, resetFilters, setPage } from "../redux/actions/actions";
 import Card from "./Card";
 import Paginate from "./Paginate";
 import "./css/CardsContainer.css";
@@ -13,13 +13,13 @@ export default function CardsContainer() {
   const [mounted, setMounted] = useState(false);
   const allRecipes = useSelector((state) => state.filterRecipes);
   const currentPage = useSelector((state) => state.currentPage); 
+  
 
   const recipesPerPage = 9;
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipe = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
-
-  const [orden, setOrden] = useState("");
+  
   const [filter, setFilter] = useState([]);
 
   const handleResetFilters = () => {
@@ -35,10 +35,9 @@ export default function CardsContainer() {
         data.sort();
         data.unshift("Select your DietType");
         setFilter(data);
-        dispatch(getDiets(data)); 
         setIsLoading(false); // Finaliza la animación de carga
       });
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!mounted) {
@@ -50,16 +49,7 @@ export default function CardsContainer() {
     }
   }, [dispatch, allRecipes, mounted]);
 
-  // Ahora agrega otro useEffect para cargar los diet types cada vez que el componente se renderice
-  useEffect(() => {
-    fetch("http://localhost:3001/diets")
-      .then((response) => response.json())
-      .then((data) => {
-        data.sort();
-        data.unshift("Select your DietType");
-        setFilter(data);
-      });
-  }, []);
+
   
   const handleFilterByType = (e) => {
     if (e.target.value !== "Not defined") {
@@ -69,20 +59,13 @@ export default function CardsContainer() {
   };
   
   const handleOrderByName = (e) => {
-    console.log("handleOrderByName called");
-  console.log("Value:", e.target.value);
-
-    dispatch(orderByName(e.target.value));
+       dispatch(orderByName(e.target.value));
     dispatch(setPage(1)); // Reinicia la página al ordenar
-    setOrden(`Ordered ${e.target.value}`);
   };
 
-  const handleOrderByScore = (e) => {
-    console.log("handleOrderByScore called");
-    console.log("Value:", e.target.value);
+  const handleOrderByScore = (e) => {    
     dispatch(orderByScore(e.target.value));
     dispatch(setPage(1)); // Reinicia la página al ordenar
-    setOrden(`Ordered ${e.target.value}`);
   };
 
   return (
@@ -105,7 +88,7 @@ export default function CardsContainer() {
    Health Score order
   </label>
   <select
-    value={orden} // Cambia esta línea
+    
     onChange={handleOrderByScore}
   >
     <option value="" >Select an option</option>
@@ -119,7 +102,6 @@ export default function CardsContainer() {
     Alphabetical order
   </label>
   <select
-    value={orden} // Cambia esta línea
     onChange={handleOrderByName}
   >
     <option value="">Select an option</option>

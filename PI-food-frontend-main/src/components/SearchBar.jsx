@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { searchByName } from "../actions/actions";
+import { searchByName, setPage } from "../redux/actions/actions";
 import Logo from '../img/logo2.png'
 import "./css/Searchbar.css";
 
@@ -9,9 +9,11 @@ export default function Searchbar() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
+   
 
   function handleInputChange(e) {
     setName(e.target.value);
+     // Reinicia la página al filtrar
   }
 
   function handleSubmit(e) {
@@ -21,6 +23,7 @@ export default function Searchbar() {
       setAlertMessage("Type something to perform your search");
       return;}
     dispatch(searchByName(name.toLowerCase().trim())); 
+    dispatch(setPage(1));
   
 
      // Aquí reutilizamos la función de reseteo de filtros del componente CardsContainer
