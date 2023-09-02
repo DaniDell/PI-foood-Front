@@ -5,7 +5,6 @@ import {
   ORDER_BY_SCORE,
   GET_NAME,
   SEARCH_BY_NAME,
-  
   RESET_FILTERS,
   SET_PAGE
 } from "../actions/actions";
@@ -14,8 +13,10 @@ const initialState = {
   recipes: [],
   filterRecipes: [],
   currentPage: 1,
+  selectedDietType: "",
+  selectedHealthLevel: "",
+  selectedAlphabeticalOrder: "",
 };
-
 
 function rootReducer(state = initialState, { type, payload }) {
   switch (type) {
@@ -25,29 +26,36 @@ function rootReducer(state = initialState, { type, payload }) {
         recipes: payload,
         filterRecipes: payload,
       };
-              
-        case RESET_FILTERS:
-          return {
-            ...state,
-            filterRecipes: state.recipes, // Restablecer los filtros a la lista completa de recetas
-          };
 
-          case SET_PAGE:
-            return {
-              ...state,
-              currentPage: payload,
-            };
+    case RESET_FILTERS:
+      return {
+        ...state,
+        filterRecipes: state.recipes,
+        selectedDietType: "",
+        selectedHealthLevel: "",
+        selectedAlphabeticalOrder: "",
+      };
+
+    case SET_PAGE:
+      return {
+        ...state,
+        currentPage: payload,
+      };
 
     case FILTER_BY_TYPE:
       if (payload === "") {
         return {
           ...state,
           filterRecipes: state.recipes,
+          selectedDietType: "",
         };
       }
       return {
         ...state,
         filterRecipes: state.recipes.filter((e) => e.diets.includes(payload)),
+        selectedDietType: payload,
+        selectedHealthLevel: "",
+        selectedAlphabeticalOrder: "",
       };
 
     case ORDER_BY_NAME:
@@ -66,6 +74,8 @@ function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         filterRecipes: sortedArr,
+        selectedHealthLevel: "",
+        selectedAlphabeticalOrder: payload,
       };
 
     case ORDER_BY_SCORE:
@@ -84,21 +94,23 @@ function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         filterRecipes: scoreArr,
+        selectedHealthLevel: payload,
+        selectedAlphabeticalOrder: "",
       };
-      
-   
 
-      case GET_NAME:
-        return {
-          ...state,
-          filterRecipes: state.recipes.filter(
-            (recipe) =>
-              recipe.name.toLowerCase().includes(payload) ||
-              recipe.name.toLowerCase().startsWith(payload) ||
-              recipe.name.toLowerCase().endsWith(payload)
-          ),
-        };
-      
+    case GET_NAME:
+      return {
+        ...state,
+        filterRecipes: state.recipes.filter(
+          (recipe) =>
+            recipe.name.toLowerCase().includes(payload) ||
+            recipe.name.toLowerCase().startsWith(payload) ||
+            recipe.name.toLowerCase().endsWith(payload)
+        ),
+        selectedDietType: "",
+        selectedHealthLevel: "",
+        selectedAlphabeticalOrder: "",
+      };
 
     case SEARCH_BY_NAME:
       const searchTerm = payload.toLowerCase();
@@ -108,9 +120,14 @@ function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         filterRecipes: filteredByName,
+        selectedDietType: "",
+        selectedHealthLevel: "",
+        selectedAlphabeticalOrder: "",
       };
+
     default:
       return state;
   }
 }
+
 export default rootReducer;

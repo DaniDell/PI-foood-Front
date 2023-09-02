@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { searchByName, setPage } from "../redux/actions/actions";
+import { searchByName, setPage, resetFilters } from "../redux/actions/actions";
 import Logo from '../img/logo2.png'
 import "./css/Searchbar.css";
 
@@ -18,7 +18,7 @@ export default function Searchbar() {
     } else {
       clearForm();
       setAlertMessage("");
-    }
+      }
   }, [filterRecipes]);
 
   function clearForm() {
@@ -27,7 +27,7 @@ export default function Searchbar() {
 
   function handleInputChange(e) {
     setName(e.target.value);
-  }
+    }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -36,7 +36,7 @@ export default function Searchbar() {
       setAlertMessage("Type something to perform your search");
       return;
     }
-
+    
     dispatch(searchByName(name.toLowerCase().trim())); 
     dispatch(setPage(1));
 
@@ -55,6 +55,7 @@ export default function Searchbar() {
   function handleAlertClose() {
     setAlertMessage("");
     clearForm();
+    dispatch(resetFilters());
   }
 
   return (

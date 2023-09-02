@@ -5,6 +5,8 @@ import Card from "./Card";
 import Paginate from "./Paginate";
 import "./css/CardsContainer.css";
 import LoadingAnimation from './LooadingSpiner';
+import FiltersMenu from "./FiltersMenu";
+
 
 export default function CardsContainer() {
   const dispatch = useDispatch();
@@ -14,12 +16,14 @@ export default function CardsContainer() {
   const allRecipes = useSelector((state) => state.filterRecipes);
   const currentPage = useSelector((state) => state.currentPage); 
   
+  
 
   const recipesPerPage = 9;
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipe = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
   
+  // eslint-disable-next-line
   const [filter, setFilter] = useState([]);
 
   const handleResetFilters = () => {
@@ -33,15 +37,15 @@ export default function CardsContainer() {
       .then((response) => response.json())
       .then((data) => {
         data.sort();
-        data.unshift("Select your DietType");
         setFilter(data);
         setIsLoading(false); // Finaliza la animación de carga
+        
       });
   }, [dispatch]);
 
   useEffect(() => {
     if (!mounted) {
-      // Solo carga los datos iniciales si allRecipes está vacío en el montaje inicial
+      // Evita que se pierdan los fitros cuando se va a otra ruta
       if (allRecipes.length === 0) {
         dispatch(getRecipes());
       }
@@ -71,49 +75,13 @@ export default function CardsContainer() {
   return (
     <div className="container">
       <div className="filterBar">
-        <div className="filterDiet"> 
-      <select onChange={handleFilterByType}>
-          {filter
-            .filter(option => option !== "Not defined")
-            .map((d, index) => (
-              <option key={index} value={d}>
-                {d}
-              </option>
-            ))}
-        </select></div>
-
-        
-        <div className="filterSelect1">
-  <label>
-   Health Score order
-  </label>
-  <select
-    
-    onChange={handleOrderByScore}
-  >
-    <option value="" >Select an option</option>
-    <option value="less">Less Healthy</option>
-    <option value="more">More Healthy</option>
-  </select>
-</div>
-
-<div className="filterSelect2">
-  <label>
-    Alphabetical order
-  </label>
-  <select
-    onChange={handleOrderByName}
-  >
-    <option value="">Select an option</option>
-    <option value="asc">Ascending A-Z</option>
-    <option value="desc">Descending Z-A</option>
-  </select>
-</div>
-
-  
-        <div className="filterReset">
-          <button onClick={handleResetFilters} >Refresh recipes</button>
-        </div>
+      <FiltersMenu
+        handleFilterByType={handleFilterByType}
+        handleOrderByName={handleOrderByName}
+        handleOrderByScore={handleOrderByScore}
+        handleResetFilters={handleResetFilters}
+        filterOptions={filter}
+      />
       </div>
   
       {isLoading ? (
