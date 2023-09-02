@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux"; 
-import "../components/css/FiltersMenu.css"
+import { useSelector } from "react-redux";
+import "../components/css/FiltersMenu.css";
 
 export default function FiltersMenu(props) {
   const {
@@ -9,14 +9,22 @@ export default function FiltersMenu(props) {
     handleOrderByScore,
     handleResetFilters,
     filterOptions,
-    selectedAlphabeticalOrder,
-    selectedHealthLevel,
   } = props;
 
   const selectedDietType = useSelector((state) => state.selectedDietType);
+  const selectedHealthLevel = useSelector((state) => state.selectedHealthLevel);
+  const selectedAlphabeticalOrder = useSelector((state) => state.selectedAlphabeticalOrder);
 
   const handleResetSelect = () => {
     handleFilterByType({ target: { value: "" } }); // Restablecer la selección a vacío
+  };
+
+  const handleResetHealthLevel = () => {
+    handleOrderByScore({ target: { value: "" } }); // Restablecer la selección de salud a vacío
+  };
+
+  const handleResetAlphabeticalOrder = () => {
+    handleOrderByName({ target: { value: "" } }); // Restablecer la selección de orden alfabético a vacío
   };
 
   return (
@@ -24,7 +32,6 @@ export default function FiltersMenu(props) {
       {selectedDietType ? (
         <div className="filterDiet">
           <p>{selectedDietType}</p>
-          
           <button onClick={handleResetSelect} className="resetButton">X</button>
         </div>
       ) : (
@@ -46,23 +53,39 @@ export default function FiltersMenu(props) {
         </div>
       )}
 
-      <div className="filterSelect1">
-        <label>Health Score order</label>
-        <select onChange={handleOrderByScore} defaultValue={selectedHealthLevel}>
-          <option value="">Select an option</option>
-          <option value="less">Less Healthy</option>
-          <option value="more">More Healthy</option>
-        </select>
-      </div>
+      {selectedHealthLevel ? (
+        <div className="filterSelect1">
+          <label>Health Score order</label>
+          <p>{selectedHealthLevel}</p>
+          <button onClick={handleResetHealthLevel} className="resetButton">X</button>
+        </div>
+      ) : (
+        <div className="filterSelect1">
+          <label>Health Score order</label>
+          <select onChange={handleOrderByScore} defaultValue={selectedHealthLevel}>
+            <option value="">Select an option</option>
+            <option value="less">Less Healthy</option>
+            <option value="more">More Healthy</option>
+          </select>
+        </div>
+      )}
 
-      <div className="filterSelect2">
-        <label>Alphabetical order</label>
-        <select onChange={handleOrderByName} defaultValue={selectedAlphabeticalOrder}>
-          <option value="">Select an option</option>
-          <option value="asc">Ascending A-Z</option>
-          <option value="desc">Descending Z-A</option>
-        </select>
-      </div>
+      {selectedAlphabeticalOrder ? (
+        <div className="filterSelect2">
+          <label>Alphabetical order</label>
+          <p>{selectedAlphabeticalOrder}</p>
+          <button onClick={handleResetAlphabeticalOrder} className="resetButton">X</button>
+        </div>
+      ) : (
+        <div className="filterSelect2">
+          <label>Alphabetical order</label>
+          <select onChange={handleOrderByName} defaultValue={selectedAlphabeticalOrder}>
+            <option value="">Select an option</option>
+            <option value="asc">Ascending A-Z</option>
+            <option value="desc">Descending Z-A</option>
+          </select>
+        </div>
+      )}
 
       <div className="filterReset">
         <button onClick={handleResetFilters}>Refresh recipes</button>

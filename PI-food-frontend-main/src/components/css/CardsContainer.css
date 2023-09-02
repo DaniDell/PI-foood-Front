@@ -8,10 +8,6 @@
     padding-top: 160px;
 }
 
-.active-filter {
-    background-color: #46914c; /* Cambia esto por el color que prefieras */
-    font-weight: bold;
-  }
 
 .filterBar {
     display: flex;
@@ -20,8 +16,7 @@
     justify-content: center;
     }
 
-
-    
+ 
       
 .filterBar select{
     font-family: 'Fira Sans', sans-serif;

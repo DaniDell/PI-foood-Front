@@ -1,27 +1,36 @@
-.filterDiet {
-    width: 250px;
+.filterDiet{
+    
     margin:   15px 0 15px 0;
     display: flex;
   align-items: center; /* Centra verticalmente los elementos */
   background-color: #ffff; 
   border-radius: 10px;
   padding: 5px; 
+  width: max-content;
   }
 
-    .filterDiet select{
-        width: 220px;
-        font-size: 18px;
+
+
+    .filterDiet select, 
+    .filterSelect1 select,
+    .filterSelect2 select {
+       font-size: 16px;
     }
 
 
-    .filterDiet p {
+    .filterDiet p ,
+    .filterSelect1 p,
+    .filterSelect2 p {
       margin: 0; /* Elimina el margen predeterminado del párrafo */
-      flex-grow: 1; /* Hace que el párrafo ocupe todo el espacio restante */
+      width: 100%;
       font-size: 18px;
       
     }
     
-    .filterDiet button {
+    .filterDiet button,
+    .filterSelect1 button,
+    .filterSelect2 button
+     {
       margin-left: 10px; /* Agrega un espacio entre el párrafo y el botón */
       width: 20px;
     height: 20px;
