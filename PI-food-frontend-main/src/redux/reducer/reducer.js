@@ -60,7 +60,7 @@ function rootReducer(state = initialState, { type, payload }) {
 
     case ORDER_BY_NAME:
       let sortedArr =
-        payload === "asc"
+        payload === "Ascending A-Z"
           ? [...state.filterRecipes].sort(function (a, b) {
               if (a.name > b.name) return 1;
               if (a.name < b.name) return -1;
@@ -80,7 +80,7 @@ function rootReducer(state = initialState, { type, payload }) {
 
     case ORDER_BY_SCORE:
       let scoreArr =
-        payload === "more"
+        payload === "More Healthy"
           ? [...state.filterRecipes].sort(function (a, b) {
               if (a.healthScore > b.healthScore) return -1;
               if (a.healthScore < b.healthScore) return 1;

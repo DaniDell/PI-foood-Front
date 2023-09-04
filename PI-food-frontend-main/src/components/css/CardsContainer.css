@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     justify-content:  center;
     width: 100%;
-    padding-top: 160px;
+    padding-top: 130px;
 }
 
 
@@ -14,6 +14,7 @@
     flex-direction: row;
     width: 100%;
     justify-content: center;
+    gap: 5px;
     }
 
  
@@ -29,12 +30,20 @@
     padding: 7px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); 
+    
 }
 
-.filterBar button{
+
+.filterReset {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.filterReset button{
     color: #ffff;
     background-color: #EE6352;
+    justify-content: center;
     width: 60px;
     height: 60px;
     font-weight: 400;
@@ -43,27 +52,10 @@
     box-shadow: 0 0 10px rgba(61, 60, 60, 0.5); 
 }
 
-.filterSelect1 {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 160px;
-  margin: 5px;
-  }
 
-  .filterSelect2 {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 160px;
-    margin: 5px ;
-    }
   
   .filterSelect1 label {
     position: relative;
-    margin-left: 16px;
     font-size: 14px;
     background-color: #57A773;
     color: #ffffff;
@@ -74,7 +66,6 @@
 
   .filterSelect2 label {
     position: relative;
-    margin-left: 16px;
     font-size: 14px;
     background-color: #484D6D;
     color: #ffffff;

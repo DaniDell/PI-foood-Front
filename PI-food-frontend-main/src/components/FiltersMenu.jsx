@@ -56,16 +56,18 @@ export default function FiltersMenu(props) {
       {selectedHealthLevel ? (
         <div className="filterSelect1">
           <label>Health Score order</label>
+          <div className="choose">
           <p>{selectedHealthLevel}</p>
           <button onClick={handleResetHealthLevel} className="resetButton">X</button>
+          </div>
         </div>
       ) : (
         <div className="filterSelect1">
           <label>Health Score order</label>
           <select onChange={handleOrderByScore} defaultValue={selectedHealthLevel}>
             <option value="">Select an option</option>
-            <option value="less">Less Healthy</option>
-            <option value="more">More Healthy</option>
+            <option value="Less Healthy">Less Healthy</option>
+            <option value="More Healthy">More Healthy</option>
           </select>
         </div>
       )}
@@ -73,22 +75,24 @@ export default function FiltersMenu(props) {
       {selectedAlphabeticalOrder ? (
         <div className="filterSelect2">
           <label>Alphabetical order</label>
+          <div className="choose">
           <p>{selectedAlphabeticalOrder}</p>
           <button onClick={handleResetAlphabeticalOrder} className="resetButton">X</button>
+          </div>
         </div>
       ) : (
         <div className="filterSelect2">
           <label>Alphabetical order</label>
           <select onChange={handleOrderByName} defaultValue={selectedAlphabeticalOrder}>
             <option value="">Select an option</option>
-            <option value="asc">Ascending A-Z</option>
-            <option value="desc">Descending Z-A</option>
+            <option value="Ascending A-Z">Ascending A-Z</option>
+            <option value="Descending Z-A">Descending Z-A</option>
           </select>
         </div>
       )}
 
       <div className="filterReset">
-        <button onClick={handleResetFilters}>Refresh recipes</button>
+        <button onClick={handleResetFilters} >Refresh recipes</button>
       </div>
     </div>
   );

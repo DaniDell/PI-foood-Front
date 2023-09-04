@@ -1,39 +1,71 @@
 .filterDiet{
-    
-    margin:   15px 0 15px 0;
-    display: flex;
+  margin:   15px 0 15px 0;
+  display: flex;
   align-items: center; /* Centra verticalmente los elementos */
+  justify-content: center;
   background-color: #ffff; 
-  border-radius: 10px;
+  border-radius: 15px;
+  padding:  0 15px; 
+  width: 250px;
+  font-size: 26px;
+  height: 60px;
+  }
+
+  .filterSelect1 ,
+  .filterSelect2  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin:   15px 0 15px 0;
+  background-color: #ffff; 
+  border-radius: 15px;
   padding: 5px; 
-  width: max-content;
+  width: 180px;
+   }
+
+  .choose {
+    display: flex;
+    flex-direction: row;
   }
 
 
-
-    .filterDiet select, 
-    .filterSelect1 select,
-    .filterSelect2 select {
-       font-size: 16px;
+    .filterDiet select {
+       font-size: 22px;
+       color: grey; 
     }
 
 
-    .filterDiet p ,
     .filterSelect1 p,
     .filterSelect2 p {
-      margin: 0; /* Elimina el margen predeterminado del párrafo */
+      margin: 0 5px; /* Elimina el margen predeterminado del párrafo */
       width: 100%;
       font-size: 18px;
-      
+    }
+
+    .filterSelect1 select,
+    .filterSelect2 select {
+       font-size: 16px;
+       color: grey; 
+    }
+
+
+    .filterDiet p  {
+      margin: 5px; /* Elimina el margen predeterminado del párrafo */
+      width: 100%;
+      font-size: 22px;
     }
     
     .filterDiet button,
     .filterSelect1 button,
     .filterSelect2 button
      {
-      margin-left: 10px; /* Agrega un espacio entre el párrafo y el botón */
       width: 20px;
-    height: 20px;
-    color: #000000;
-    background-color: white;
+      height: 20px;
+      color: #000000;
+      background-color: white;
+      font-weight: 400;
+      font-size: 10pt;
+      padding: 2px;
+      box-shadow: 0 0 10px rgba(61, 60, 60, 0.5); 
     }
