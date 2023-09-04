@@ -2,15 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  align-items: center;
   font-size: 16pt;
-  margin-top: 10px;
-  }
+    }
+
 .buscador a{
     color: #ffffff;
     font-size: 14pt;
     font-weight: 800;
-    margin: 0 0 0 50px;
+    margin: 0 0 0 10px;
 }
 
 .buscador form {
@@ -29,22 +28,21 @@
     }
 
 .buscar button{
-    
     font-weight: 500;
     font-size: 16pt;
 }
 
 .recipeCreate{
-  display: inline-block;
+  display: block;
   padding: 10px 20px;
-  background-color: #57A773; /* Cambia el color de fondo según tus preferencias */
+  background-color: #57A773; 
   text-decoration: none;
   border: none;
   border-radius: 15px;
   font-size: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin: 0 0px 0 120px;
+  margin: 0;
     }
 
 .recipeCreate:hover{
@@ -54,7 +52,7 @@
 
 .logo{float: left;
   position: relative;
-  padding:  0 30px 5px 25px;
+  padding:  10px 30px 10px 25px;
   margin: 10px;
 }
 .logo:hover{opacity: 0.8;}
@@ -102,8 +100,16 @@ top: -135px;
 
   /* Para pantallas más pequeñas */
 @media (max-width: 768px) {
+
+  .buscador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+      }
+
     .buscador a{
-    justify-items: center; 
+    justify-items: start; 
       font-size: 11pt; 
     
     }
@@ -117,20 +123,18 @@ top: -135px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-items: center; 
+      justify-items: start; 
       padding: 0px;
       margin-top: 10px;
       height: 120px;
-      width: 400px;
+      width: 410px;
       }
   
-    .recipeCreate  a{
-      margin: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
-      padding-top: 10px;
-      }
-      .recipeCreate  {
-        margin: 0;
-        }
+     
+      .recipeCreate {
+        display: block;
+        margin-right: 40px;
+          }
 
        .alert {
         left: 50px;
@@ -144,14 +148,14 @@ top: -135px;
         font-weight: 100px;
         font-size: 10pt;
     }
-    .logo img{
-      width: 100px;
-      margin: 0px;
-     }
+    .logo img {
+      width: 130px;
+      display: block;
+    }
+    
 
      .logo{
-      
-      padding:  0 20px 0px 0px;
+      padding:  0 0px 0px 0px;
       margin: 0px;
     }
   }
