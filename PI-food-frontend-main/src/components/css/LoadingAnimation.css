@@ -1,12 +1,11 @@
-css
-Copy code
 .loading-animation {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Cambiamos align-items para alinear en la parte superior */
-  height: 100vh;
+  align-items: flex-start; 
+  width: 200px;
   font-size: 1.5rem;
-  margin-top: 20vh; /* Agregamos margen superior para posicionarlo más arriba */
+  margin-top: 10vh; 
+  margin-bottom: 10vh;
 }
 
   @media (prefers-reduced-motion: no-preference) {
