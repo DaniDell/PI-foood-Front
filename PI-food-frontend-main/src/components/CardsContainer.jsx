@@ -18,7 +18,7 @@ export default function CardsContainer() {
   
   
 
-  const recipesPerPage = 9;
+  const recipesPerPage = 8;
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipe = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);

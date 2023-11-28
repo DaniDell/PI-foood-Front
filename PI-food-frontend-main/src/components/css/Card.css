@@ -3,6 +3,7 @@
 .cardRecipe {
   display: inline-block;
   width: 250px;
+  height: 410px;  
   margin: 30px;
   background-color: #ddd7cf;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); 
